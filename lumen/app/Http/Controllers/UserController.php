@@ -61,6 +61,7 @@ class UserController extends Controller
 
             $inputData = $request->all();
             $inputData['created_by'] = Auth::user()->id;
+            $inputData['hobbies'] = implode(",", $inputData['hobbies']);
             $user = User::create($inputData);
 
             if($user) {
