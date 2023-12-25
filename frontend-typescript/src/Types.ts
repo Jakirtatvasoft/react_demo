@@ -94,3 +94,21 @@ export interface stateType {
     user: UserDataType
   }
 }
+
+export interface EventDataType {
+  id?: number,
+  event_name: string,
+  event_color: string,
+  event_date: string,
+  recurring: string,
+  repeat_end_date?: any,
+  created_at?: string,
+  updated_at?: string
+  message?: string,
+}
+
+export interface CalendarEventDataType {
+  title: string,
+  start: string,
+  end: string
+}

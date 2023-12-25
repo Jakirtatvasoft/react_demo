@@ -18,6 +18,8 @@ import AddEditUser from "./components/Users/AddEditUser";
 import ProfileIndex from "./components/Profile/ProfileIndex";
 import Profile from "./components/Profile/Profile";
 import EditProfile from "./components/Profile/EditProfile";
+import EventIndex from "./components/Events/EventIndex";
+import Events from "./components/Events/Events";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +41,9 @@ export const router = createBrowserRouter(
         <Route path='profile' element={<Protected Component={ProfileIndex} />}>
           <Route path='' element={<Profile />} />
           <Route path='edit-profile' element={<EditProfile />} />
+        </Route>
+        <Route path='events' element={<Protected Component={EventIndex} />}>
+          <Route path='' element={<Events />} />
         </Route>
       </Route>
       <Route path='/*' element={<h4>404 Not found.</h4>} />

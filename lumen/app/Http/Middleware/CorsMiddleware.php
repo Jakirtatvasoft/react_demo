@@ -15,10 +15,20 @@ class CorsMiddleware
      */
     public function handle($request, Closure $next)
     {
-        header('Access-Control-Allow-Origin: *'); // You can set specific origins here
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-        header('Access-Control-Allow-Headers: Accept, Content-Type, X-Requested-With, Authorization');
+        header("Access-Control-Allow-Origin: *");
 
-        return $next($request);
+        $headers = [
+            'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, PUT, DELETE',
+            'Access-Control-Allow-Headers' => 'Content-Type, X-Auth-Token, Origin, Authorization'
+        ];
+        if ($request->getMethod() == "OPTIONS") {
+            return response('OK')
+                ->withHeaders($headers);
+        }
+
+        $response = $next($request);
+        foreach ($headers as $key => $value)
+            $response->header($key, $value);
+        return $response;
     }
 }
