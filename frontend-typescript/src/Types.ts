@@ -112,3 +112,19 @@ export interface CalendarEventDataType {
   start: string,
   end: string
 }
+
+export interface KanbanColumnDataType {
+  id?: number,
+  column_name: string,
+}
+
+export interface TaskDataType {
+  id?: number,
+  column_id: string,
+  title: string,
+  due_date: string,
+  status: string,
+  created_at?: string,
+  updated_at?: string
+}
+

@@ -130,7 +130,7 @@ const validateRequired = (
 
   if (
     (Array.isArray(data) && data.length == 0) ||
-    (!Array.isArray(data) && !data.trim())
+    (!Array.isArray(data) && !String(data).trim())
   ) {
     errMsg = message || `The ${validate.replace(/_/g, " ")} field is required.`;
   }

@@ -50,5 +50,25 @@ $router->group(['prefix' => 'api'], function ()  use ($router) {
         $router->delete('users/{userId}', 'UserController@destroy');
 
         $router->post('edit-profile/{userId}', 'ProfileController@editProfile');
+
+        $router->get('events', 'EventController@index');
+        $router->post('events', 'EventController@store');
+        $router->get('events/{eventId}', 'EventController@edit');
+        $router->post('events/{eventId}', 'EventController@update');
+        $router->delete('events/{eventId}', 'EventController@destroy');
+        $router->get('events/calender/events', 'EventController@calenderEvents');
+
+        $router->post('task_columns', 'TaskColumnController@store');
+        $router->delete('task_columns/{columnId}', 'TaskColumnController@destroy');
+        $router->get('task_columns/{columnId}', 'TaskColumnController@edit');
+        $router->post('task_columns/{columnId}', 'TaskColumnController@update');
+
+        $router->post('tasks', 'TaskController@store');
+        $router->get('tasks/get-columns', 'TaskController@getColumns');
+        $router->get('tasks/board', 'TaskController@board');
+        $router->delete('tasks/{taskId}', 'TaskController@destroy');
+        $router->post('tasks/reorder', 'TaskController@reorder');
+        $router->get('tasks/{taskId}', 'TaskController@edit');
+        $router->post('tasks/{taskId}', 'TaskController@update');
     });
 });

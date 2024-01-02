@@ -208,6 +208,34 @@ const Sidebar = () => {
                 )}
               </NavLink>
             </li>
+
+            <li>
+              <NavLink to="/kanban">
+                {({ isActive }) => (
+                  <Button
+                    variant={isActive ? "gradient" : "text"}
+                    color={
+                      isActive
+                        ? sidenavColor
+                        : sidenavType === "dark"
+                        ? "white"
+                        : "blue-gray"
+                    }
+                    className="flex items-center gap-4 px-4 capitalize"
+                    fullWidth
+                  >
+                    <UsersIcon className="w-5 h-5 text-inherit" />
+                    <Typography
+                      color="inherit"
+                      className="font-medium capitalize"
+                    >
+                      Kanban Board
+                    </Typography>
+                  </Button>
+                )}
+              </NavLink>
+            </li>
+
           </ul>
         </div>
       </aside>

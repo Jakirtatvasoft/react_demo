@@ -15,7 +15,7 @@ import { MaterialTailwindControllerProvider } from './context';
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider>
         <MaterialTailwindControllerProvider>
@@ -23,5 +23,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </MaterialTailwindControllerProvider>
       </ThemeProvider>
     </Provider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
